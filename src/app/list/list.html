@@ -1,0 +1,37 @@
+<ul class="list">
+  <h2 class="list__title">list title Here are some items.</h2>
+  <button
+    [class]="listItemToggle ? 'list__btn-active' : 'list__btn'"
+    type="button"
+    (click)="handleShowList()"
+  >
+    @if (listItemToggle) { Hide } @else { Show } List Item
+  </button>
+  <hr />
+  <form class="form" action="">
+    <input
+      class="form__input"
+      type="text"
+      placeholder="Add new title"
+      #listItem
+    />
+    <button
+      class="form__input-btn"
+      (click)="handleAddItem(listItem.value); listItem.value = ''"
+    >
+      Add
+    </button>
+  </form>
+  @if (listItemToggle) { @for (item of newListItem; track $index) {
+  <li class="list__item">
+    <h4 class="list__item-title">{{item}}</h4>
+    <p class="list__item-description"></p>
+  </li>
+  }
+
+  <!-- <li class="list__item">
+    <h4 class="list__itme-title">list item title</h4>
+    <p class="list__item-description">description</p>
+  </li> -->
+  }
+</ul>
