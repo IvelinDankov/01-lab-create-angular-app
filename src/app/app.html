@@ -10,3 +10,9 @@
 
 <hr />
 <app-couter />
+
+<hr />
+
+<input type="text " #nameInput />
+<button type="button" (click)="addUserHandler(nameInput)">Add user</button>
+<app-test [users]="users" />
